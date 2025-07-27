@@ -12,10 +12,6 @@ if __name__ == "__main__":
         scene = Scene()
         scene.load_from_file("step1_example.xml")
         scene.render(canvas)
-
-        # cv2.imwrite("scene.png", canvas)
-        cv2.imshow("Scene", canvas)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        Scene.show_scene(canvas)
 
         print('Finish')

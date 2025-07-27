@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 from shape_factory import ShapeFactory
-
+import cv2
 
 class Scene:
     def __init__(self):
@@ -17,3 +17,9 @@ class Scene:
     def render(self, canvas):
         for shape in self.shapes:
             shape.draw(canvas)
+
+    @staticmethod
+    def show_scene(canvas):
+        cv2.imshow("Scene", canvas)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()

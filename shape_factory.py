@@ -1,4 +1,5 @@
-from shapes import Circle, Line
+from shapes.line import Line
+from shapes.circle import Circle
 
 
 class ShapeFactory:

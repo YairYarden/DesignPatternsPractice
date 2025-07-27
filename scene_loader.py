@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-import ShapeFactory
+from shape_factory import ShapeFactory
 
 
 class Scene:

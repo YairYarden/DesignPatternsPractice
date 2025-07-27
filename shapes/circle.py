@@ -1,4 +1,4 @@
-import Shape
+from shapes.shape import Shape
 
 
 class Circle(Shape):
@@ -10,7 +10,7 @@ class Circle(Shape):
         self.border_color = border_color
 
     @classmethod
-    def read_from_xml(cls, element):
+    def from_xml(cls, element):
         return cls(
             x=int(element.attrib['X']),
             y=int(element.attrib['Y']),

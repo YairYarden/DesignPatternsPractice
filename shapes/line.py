@@ -1,4 +1,4 @@
-import Shape
+from shapes.shape import Shape
 
 
 class Line(Shape):

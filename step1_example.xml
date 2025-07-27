@@ -1,0 +1,7 @@
+<Scene>
+  <Circle X="100" Y="100" Radius="100" FillingColor="White" Color="Black" />
+  <Line Color="Black">
+    <Point X="100" Y="100" />
+    <Point X="200" Y="100" />
+  </Line>
+</Scene>

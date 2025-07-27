@@ -14,6 +14,6 @@ class Scene:
             shape = ShapeFactory.create_shape(elem)
             self.shapes.append(shape)
 
-    def render(self):
+    def render(self, canvas):
         for shape in self.shapes:
-            shape.draw()
+            shape.draw(canvas)

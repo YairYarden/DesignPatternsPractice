@@ -7,5 +7,5 @@ COLOR_MAP = {
 }
 
 
-def get_color(name):
+def get_color_rgb(name):
     return COLOR_MAP.get(name, (0, 0, 0))  # default Black

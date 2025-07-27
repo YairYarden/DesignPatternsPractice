@@ -1,0 +1,7 @@
+<Scene>
+    <Triangle Color="Black">
+      <Point X="100" Y="100" />
+      <Point X="100" Y="300" />
+      <Point X="200" Y="200" />
+    </Triangle>
+</Scene>

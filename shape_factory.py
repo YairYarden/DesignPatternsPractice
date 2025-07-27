@@ -1,11 +1,12 @@
 from shapes.line import Line
 from shapes.circle import Circle
-
+from shapes.triangle import Triangle
 
 class ShapeFactory:
     shape_map = {
         'Circle': Circle,
-        'Line': Line
+        'Line': Line,
+        'Triangle': Triangle
     }
 
     @classmethod

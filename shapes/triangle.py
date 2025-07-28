@@ -14,19 +14,6 @@ class Triangle(Shape):
             self.fill_color_rgb = get_color_rgb(fill_color_name)
         else:
             self.fill_color_rgb = get_color_rgb("White")
-    @classmethod
-    def read_from_xml(cls, element):
-        if element.get("FillingColor") is not None:
-            fill_color_name = element.attrib['FillingColor']
-        else:
-            fill_color_name = "White"
-
-        points = [
-            (int(p.attrib['X']), int(p.attrib['Y']))
-            for p in element.findall('Point')
-        ]
-        return cls(p1=points[0], p2=points[1], p3=points[2],
-                   color_name=element.attrib['Color'], fill_color_name=fill_color_name)
 
     def draw(self, canvas):
         pts = np.array([self.p1, self.p2, self.p3], dtype=np.int32)

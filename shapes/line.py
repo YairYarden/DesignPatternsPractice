@@ -7,14 +7,13 @@ class Line(Shape):
         self.p2 = p2
         self.color_rgb = get_color_rgb(color_name)
 
-    @classmethod
-    def read_from_xml(cls, element):
-        points = [
-            (int(p.attrib['X']), int(p.attrib['Y']))
-            for p in element.findall('Point')
-        ]
-        return cls(p1=points[0], p2=points[1], color_name=element.attrib['Color'])
+    def get_points(self):
+        return [self.p1, self.p2]
+
+    def set_points(self, points):
+        self.p1 = points[0]
+        self.p2 = points[1]
 
     def draw(self, canvas):
-        print(f"Drawing Line with color {self.color_rgb} and points {self.p1}, {self.p2}")
+        # print(f"Drawing Line with color {self.color_rgb} and points {self.p1}, {self.p2}")
         cv2.line(canvas, self.p1, self.p2, self.color_rgb, thickness=2)

@@ -4,6 +4,14 @@ from transforms.rotation import Rotation
 
 
 class TransformFactory:
+    @staticmethod
+    def create_transforms(elem, file_type):
+        if file_type == 'xml':
+            return TransformFactory.create_transforms_from_xml_elem(elem)
+        elif file_type == 'json':
+            return TransformFactory.create_transforms_from_json_elem(elem)
+        else:
+            raise ValueError(f"No support in File type : {file_type}")
 
     @staticmethod
     def create_transforms_from_xml_elem(elem):

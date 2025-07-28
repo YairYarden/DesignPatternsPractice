@@ -23,6 +23,6 @@
       <Point X="150" Y="190" />
     </Line>
   </Composite>
-  <Panda Scale="0.5" TranslateX="400" TranslateY="400" Rotate="45" />
+  <Panda Scale="1" TranslateX="100" TranslateY="100" Rotate="0" />
   <Panda />
 </Scene>

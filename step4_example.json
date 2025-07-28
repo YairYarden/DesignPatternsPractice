@@ -1,0 +1,128 @@
+[
+    {
+        "type": "composite",
+        "name": "Panda",
+        "draw": false,
+        "children": [
+            {
+                "type": "circle",
+                "x": 100,
+                "y": 100,
+                "radius": 100,
+                "filling_color": "White",
+                "color": "Black"
+            },
+            {
+                "type": "circle",
+                "x": 25,
+                "y": 0,
+                "radius": 25,
+                "filling_color": "Black",
+                "color": "Black"
+            },
+            {
+                "type": "circle",
+                "x": 175,
+                "y": 0,
+                "radius": 25,
+                "filling_color": "Black",
+                "color": "Black"
+            },
+            {
+                "type": "circle",
+                "x": 50,
+                "y": 50,
+                "radius": 15,
+                "filling_color": "Black",
+                "color": "Black"
+            },
+            {
+                "type": "circle",
+                "x": 150,
+                "y": 50,
+                "radius": 15,
+                "filling_color": "Black",
+                "color": "Black"
+            },
+            {
+                "type": "triangle",
+                "color": "Black",
+                "children": [
+                    {
+                        "type": "point",
+                        "x": 100,
+                        "y": 150
+                    },
+                    {
+                        "type": "point",
+                        "x": 50,
+                        "y": 125
+                    },
+                    {
+                        "type": "point",
+                        "x": 150,
+                        "y": 125
+                    }
+                ]
+            },
+            {
+                "type": "line",
+                "color": "Black",
+                "children": [
+                    {
+                        "type": "point",
+                        "x": 100,
+                        "y": 175
+                    },
+                    {
+                        "type": "point",
+                        "x": 100,
+                        "y": 150
+                    }
+                ]
+            },
+            {
+                "type": "line",
+                "color": "Black",
+                "children": [
+                    {
+                        "type": "point",
+                        "x": 100,
+                        "y": 175
+                    },
+                    {
+                        "type": "point",
+                        "x": 50,
+                        "y": 190
+                    }
+                ]
+            },
+            {
+                "type": "line",
+                "color": "Black",
+                "children": [
+                    {
+                        "type": "point",
+                        "x": 100,
+                        "y": 175
+                    },
+                    {
+                        "type": "point",
+                        "x": 150,
+                        "y": 190
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "Panda",
+        "scale": 1,
+        "translate_x": 100,
+        "translate_y": 100,
+        "rotate": 45
+    },
+	{
+        "type": "Panda"
+    }
+]

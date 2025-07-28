@@ -24,12 +24,11 @@ class Scene:
         root = tree.getroot()
         for elem in root:
             shape = self.shape_factory.create_shape_from_xml_elem(elem)
-            if shape is None:
-                continue
-            transforms = TransformFactory.create_transforms(elem)
-            for transform in transforms:
-                shape.apply_transform(transform)
-            self.shapes.append(shape)
+            if shape is not None:
+                transforms = TransformFactory.create_transforms_from_xml_elem(elem)
+                for transform in transforms:
+                    shape.apply_transform(transform)
+                self.shapes.append(shape)
 
     def load_from_json(self, filename):
         with open(filename, 'r') as file:
@@ -38,6 +37,9 @@ class Scene:
         for entry in json_data:
             shape = self.shape_factory.create_shape_from_json_elem(entry)
             if shape is not None:
+                transforms = TransformFactory.create_transforms_from_json_elem(entry)
+                for transform in transforms:
+                    shape.apply_transform(transform)
                 self.shapes.append(shape)
 
     def render(self, canvas):

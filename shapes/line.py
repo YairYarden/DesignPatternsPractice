@@ -1,6 +1,8 @@
 from shapes.shape import Shape
 import cv2
 from shapes.colors import get_color_rgb
+
+
 class Line(Shape):
     def __init__(self, p1, p2, color_name):
         self.p1 = p1

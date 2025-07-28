@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+import json
 from shapes.shape_factory import ShapeFactory
 from transforms.transform_factory import TransformFactory
 import cv2
@@ -7,6 +8,7 @@ import cv2
 class Scene:
     def __init__(self):
         self.shapes = []
+        self.shape_factory = ShapeFactory()
 
     def load_from_file(self, filename):
         extension = filename.rsplit('.', 1)[-1] if '.' in filename else ''
@@ -20,9 +22,8 @@ class Scene:
     def load_from_xml(self, filename):
         tree = ET.parse(filename)
         root = tree.getroot()
-        shape_factory = ShapeFactory()
         for elem in root:
-            shape = shape_factory.create_shape(elem)
+            shape = self.shape_factory.create_shape_from_xml_elem(elem)
             if shape is None:
                 continue
             transforms = TransformFactory.create_transforms(elem)
@@ -31,7 +32,13 @@ class Scene:
             self.shapes.append(shape)
 
     def load_from_json(self, filename):
-        pass
+        with open(filename, 'r') as file:
+            json_data = json.load(file)
+
+        for entry in json_data:
+            shape = self.shape_factory.create_shape_from_json_elem(entry)
+            if shape is not None:
+                self.shapes.append(shape)
 
     def render(self, canvas):
         for shape in self.shapes:

@@ -2,9 +2,8 @@ from transforms.base_transform import ITransform
 
 
 class Scaling(ITransform):
-    def __init__(self, sx: float, sy: float):
-        self.sx = sx
-        self.sy = sy
+    def __init__(self, scale_factor: float):
+        self.scale_factor = scale_factor
 
     def apply(self, points):
-        return [int((float(x) * self.sx), int(float(y) * self.sy)) for x, y in points]
+        return [(int(float(x) * self.scale_factor), int(float(y) * self.scale_factor)) for x, y in points]

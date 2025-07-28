@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as ET
 from shape_factory import ShapeFactory
+from transforms.transform_factory import TransformFactory
 import cv2
 
 
@@ -22,6 +23,9 @@ class Scene:
 
         for elem in root:
             shape = ShapeFactory.create_shape(elem)
+            transforms = TransformFactory.create_transforms(elem)
+            for transform in transforms:
+                shape.set_points(transform.apply(shape.get_points()))
             self.shapes.append(shape)
 
     def load_from_json(self, filename):

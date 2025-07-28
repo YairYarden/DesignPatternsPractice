@@ -6,7 +6,7 @@ class TranslationX(ITransform):
         self.dx = dx
 
     def apply(self, points):
-        return [(x + self.dx, y) for x, y in points]
+        return [(int(x + self.dx), y) for x, y in points]
 
 
 class TranslationY(ITransform):
@@ -14,4 +14,4 @@ class TranslationY(ITransform):
         self.dy = dy
 
     def apply(self, points):
-        return [(x, y + self.dy) for x, y in points]
+        return [(x, int(y + self.dy)) for x, y in points]

@@ -12,8 +12,8 @@ class ShapeFactory:
         'Quadrilateral': Quadrilateral
     }
 
-    @classmethod
-    def create_shape(cls, elem):
+    @staticmethod
+    def create_shape(elem):
         tag = elem.tag.lower()
         color = elem.attrib.get("Color", "Black")
         points = [

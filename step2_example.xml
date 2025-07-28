@@ -1,7 +1,25 @@
 <Scene>
+    <Circle X="100" Y="100" Radius="100" FillingColor="White" Color="Black" />
+    <Circle X="25" Y="0" Radius="25" FillingColor="Black" Color="Black" />
+    <Circle X="175" Y="0" Radius="25" FillingColor="Black" Color="Black" />
+    <Circle X="50" Y="50" Radius="15" FillingColor="Black" Color="Black" />
+    <Circle X="150" Y="50" Radius="15" FillingColor="Black" Color="Black" />
     <Triangle Color="Black">
-      <Point X="100" Y="100" />
-      <Point X="100" Y="300" />
-      <Point X="200" Y="200" />
+      <Point X="100" Y="150" />
+      <Point X="50" Y="125" />
+      <Point X="150" Y="125" />
     </Triangle>
+    <Line Color="Black">
+      <Point X="100" Y="175" />
+      <Point X="100" Y="150" />
+    </Line>
+    <Line Color="Black">
+      <Point X="100" Y="175" />
+      <Point X="50" Y="190" />
+    </Line>
+    <Line Color="Black">
+      <Point X="100" Y="175" />
+      <Point X="150" Y="190" />
+    </Line>
+    <Circle Color="Black" X="0" Y="0" Radius="75" Scale="2" TranslateX="150" TranslateY="150" Rotate="0"/>
 </Scene>

@@ -2,6 +2,9 @@ from shapes.shape import Shape
 import cv2
 from shapes.colors import get_color_rgb
 from transforms.base_transform import ITransform
+from transforms.rotation import Rotation
+from transforms.scaling import Scaling
+import math
 
 
 class Line(Shape):
@@ -18,7 +21,10 @@ class Line(Shape):
         self.p2 = points[1]
 
     def apply_transform(self, transform: ITransform):
-        self.set_points(transform.apply(self.get_points()))
+        if isinstance(transform, Rotation) or isinstance(transform, Scaling):
+            self.set_points(transform.apply(self.get_points(), self.compute_center_mass()))
+        else:
+            self.set_points(transform.apply(self.get_points()))
 
     def draw(self, canvas):
         # print(f"Drawing Line with color {self.color_rgb} and points {self.p1}, {self.p2}")

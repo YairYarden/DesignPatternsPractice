@@ -2,7 +2,8 @@ from shapes.shape import Shape
 from shapes.colors import get_color_rgb
 import numpy as np
 import cv2
-
+from transforms.rotation import Rotation
+from transforms.scaling import Scaling
 
 class Triangle(Shape):
     def __init__(self, p1, p2, p3, color_name, fill_color_name=None):
@@ -24,7 +25,10 @@ class Triangle(Shape):
         self.p3 = points[2]
 
     def apply_transform(self, transform):
-        self.set_points(transform.apply(self.get_points()))
+        if isinstance(transform, Rotation) or isinstance(transform, Scaling):
+            self.set_points(transform.apply(self.get_points(), self.compute_center_mass()))
+        else:
+            self.set_points(transform.apply(self.get_points()))
 
     def draw(self, canvas):
         pts = np.array([self.p1, self.p2, self.p3], dtype=np.int32)

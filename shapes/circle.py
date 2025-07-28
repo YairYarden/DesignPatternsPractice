@@ -2,6 +2,9 @@ from shapes.shape import Shape
 from shapes.colors import get_color_rgb
 import cv2
 from transforms.base_transform import ITransform
+from transforms.rotation import Rotation
+from transforms.scaling import Scaling
+
 
 class Circle(Shape):
     def __init__(self, center, radius, color_name, fill_color_name=None):
@@ -20,12 +23,13 @@ class Circle(Shape):
         self.center = points[0]
 
     def apply_transform(self, transform: ITransform):
-        self.set_points(transform.apply(self.get_points()))
+        # Rotation - do nothing. Scaling - change radius (not points)
+        if not isinstance(transform, Rotation):
+            if isinstance(transform, Scaling):
+                self.radius = int(float(self.radius) * transform.scale_factor)
+            else:
+                self.set_points(transform.apply(self.get_points()))
 
     def draw(self, canvas):
-        # print(f"Drawing Circle at ({self.x}, {self.y}) with radius {self.radius}")
-        # Draw filled circle
-        cv2.circle(canvas, self.center, self.radius, self.fill_color_rgb, -1)
-
-        # Draw border
-        cv2.circle(canvas, self.center, self.radius, self.color_rgb, 2)
+        cv2.circle(canvas, self.center, self.radius, self.fill_color_rgb, -1)  # Draw filled circle
+        cv2.circle(canvas, self.center, self.radius, self.color_rgb, 2)  # Draw border

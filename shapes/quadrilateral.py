@@ -2,6 +2,8 @@ from shapes.shape import Shape
 from shapes.colors import get_color_rgb
 import numpy as np
 import cv2
+from transforms.rotation import Rotation
+from transforms.scaling import Scaling
 
 
 class Quadrilateral(Shape):
@@ -26,7 +28,10 @@ class Quadrilateral(Shape):
         self.p4 = points[3]
 
     def apply_transform(self, transform):
-        self.set_points(transform(self.get_points()))
+        if isinstance(transform, Rotation) or isinstance(transform, Scaling):
+            self.set_points(transform.apply(self.get_points(), self.compute_center_mass()))
+        else:
+            self.set_points(transform.apply(self.get_points()))
 
     @staticmethod
     def sort_points_clockwise(pts):

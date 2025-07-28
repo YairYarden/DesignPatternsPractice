@@ -1,6 +1,7 @@
 from shapes.shape import Shape
 import cv2
 from shapes.colors import get_color_rgb
+from transforms.base_transform import ITransform
 
 
 class Line(Shape):
@@ -15,6 +16,9 @@ class Line(Shape):
     def set_points(self, points):
         self.p1 = points[0]
         self.p2 = points[1]
+
+    def apply_transform(self, transform: ITransform):
+        self.set_points(transform.apply(self.get_points()))
 
     def draw(self, canvas):
         # print(f"Drawing Line with color {self.color_rgb} and points {self.p1}, {self.p2}")

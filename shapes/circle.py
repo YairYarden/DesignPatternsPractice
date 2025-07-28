@@ -1,7 +1,7 @@
 from shapes.shape import Shape
 from shapes.colors import get_color_rgb
 import cv2
-
+from transforms.base_transform import ITransform
 
 class Circle(Shape):
     def __init__(self, center, radius, color_name, fill_color_name=None):
@@ -18,6 +18,9 @@ class Circle(Shape):
 
     def set_points(self, points):
         self.center = points[0]
+
+    def apply_transform(self, transform: ITransform):
+        self.set_points(transform.apply(self.get_points()))
 
     def draw(self, canvas):
         # print(f"Drawing Circle at ({self.x}, {self.y}) with radius {self.radius}")

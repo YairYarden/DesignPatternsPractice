@@ -12,6 +12,10 @@ class Shape(ABC):
         pass
 
     @abstractmethod
+    def apply_transform(self, transform: ITransform):
+        pass
+
+    @abstractmethod
     def draw(self):
         pass
 

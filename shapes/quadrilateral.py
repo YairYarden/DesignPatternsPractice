@@ -25,6 +25,9 @@ class Quadrilateral(Shape):
         self.p3 = points[2]
         self.p4 = points[3]
 
+    def apply_transform(self, transform):
+        self.set_points(transform(self.get_points()))
+
     @staticmethod
     def sort_points_clockwise(pts):
         pts = np.array(pts, dtype="float32")

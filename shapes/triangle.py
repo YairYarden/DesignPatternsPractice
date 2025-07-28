@@ -23,6 +23,9 @@ class Triangle(Shape):
         self.p2 = points[1]
         self.p3 = points[2]
 
+    def apply_transform(self, transform):
+        self.set_points(transform.apply(self.get_points()))
+
     def draw(self, canvas):
         pts = np.array([self.p1, self.p2, self.p3], dtype=np.int32)
         if self.fill_color_rgb:

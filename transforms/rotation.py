@@ -15,4 +15,3 @@ class Rotation(ITransform):
              int((x-cx) * sin_a + (y-cy) * cos_a) + cy)
             for x, y in points
         ]
-

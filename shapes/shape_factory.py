@@ -51,4 +51,3 @@ class ShapeFactory:
 
         else:
             raise ValueError(f"No support in shape : {elem}")
-

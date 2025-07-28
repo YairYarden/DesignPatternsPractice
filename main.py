@@ -9,7 +9,7 @@ if __name__ == "__main__":
         canvas = np.ones((height, width, 3), dtype=np.uint8) * 255  # white canvas
 
         scene = Scene()
-        scene.load_from_file("step2_example.xml")
+        scene.load_from_file("step3_example.xml")
         scene.render(canvas)
         Scene.show_scene(canvas)
 

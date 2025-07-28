@@ -22,7 +22,7 @@ class Shape(ABC):
         return int(sum(x_all) / len(points)), int(sum(y_all) / len(points))
 
     @abstractmethod
-    def draw(self):
+    def draw(self, canvas):
         pass
 
     def transform(self, transformation: ITransform):

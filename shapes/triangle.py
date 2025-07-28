@@ -5,6 +5,7 @@ import cv2
 from transforms.rotation import Rotation
 from transforms.scaling import Scaling
 
+
 class Triangle(Shape):
     def __init__(self, p1, p2, p3, color_name, fill_color_name=None):
         self.p1 = (int(p1[0]), int(p1[1]))

@@ -4,7 +4,6 @@ from shapes.colors import get_color_rgb
 from transforms.base_transform import ITransform
 from transforms.rotation import Rotation
 from transforms.scaling import Scaling
-import math
 
 
 class Line(Shape):

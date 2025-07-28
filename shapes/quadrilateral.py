@@ -16,6 +16,15 @@ class Quadrilateral(Shape):
         else:
             self.fill_color_rgb = get_color_rgb("White")
 
+    def get_points(self):
+        return [self.p1, self.p2, self.p3, self.p4]
+
+    def set_points(self, points):
+        self.p1 = points[0]
+        self.p2 = points[1]
+        self.p3 = points[2]
+        self.p4 = points[3]
+
     @staticmethod
     def sort_points_clockwise(pts):
         pts = np.array(pts, dtype="float32")

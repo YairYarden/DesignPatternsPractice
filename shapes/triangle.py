@@ -15,6 +15,14 @@ class Triangle(Shape):
         else:
             self.fill_color_rgb = get_color_rgb("White")
 
+    def get_points(self):
+        return [self.p1, self.p2, self.p3]
+
+    def set_points(self, points):
+        self.p1 = points[0]
+        self.p2 = points[1]
+        self.p3 = points[2]
+
     def draw(self, canvas):
         pts = np.array([self.p1, self.p2, self.p3], dtype=np.int32)
         if self.fill_color_rgb:

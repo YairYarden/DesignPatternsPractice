@@ -16,23 +16,28 @@ class ShapeFactory:
     def create_shape(cls, elem):
         tag = elem.tag.lower()
         color = elem.attrib.get("Color", "Black")
+        points = [
+            (int(p.attrib['X']), int(p.attrib['Y']))
+            for p in elem.findall('Point')
+        ]
         fill_color = elem.attrib.get("FillingColor", "White")
 
         if tag == "line":
-            points = [
-                (int(p.attrib['X']), int(p.attrib['Y']))
-                for p in elem.findall('Point')
-            ]
-            return Line(p1=points[0], p2=points[1], color_name=color)
+            return Line(points[0], points[1], color)
 
         elif tag == "circle":
-            x = int(elem.attrib["X"])
-            y = int(elem.attrib["Y"])
+            x = int(elem.attrib['X'])
+            y = int(elem.attrib['Y'])
             radius = int(elem.attrib["Radius"])
             shape = Circle((x, y), radius, color, fill_color)
+
+        elif tag == "triangle":
+            shape = Triangle(points[0], points[1], points[2], color, fill_color)
+
+        elif tag == "quadrilateral":
+            shape = Quadrilateral(points[0], points[1], points[2], points[3], color, fill_color)
 
         else:
             raise ValueError(f"No support in shape : {elem}")
 
         return shape
-    
